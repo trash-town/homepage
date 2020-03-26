@@ -10,7 +10,7 @@ body {
   background-color: var(--dark-green);
   color: var(--med-green);
   max-width: 650px;
-  font-family: 'FantasqueSansMonoRegular';
+  font-family: 'FantasqueSansMonoRegular', monospace;
   font-size: 18px;
   line-height: 1.6;
 }
