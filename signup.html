@@ -20,86 +20,90 @@
       <a href="/news.html">news</a> <>
       <a href="/signup.html">signup</a> <>
       <a href="/wiki/">wiki</a> <>
-      <a href="https://twitter.com/trashdottown">twitter</a> <>
-      <a href="https://tiny.tilde.website/@trashtown" rel="me">mastodon</a> <>
-      <a href="https://patreon.com/trashtown">patreon</a>
+      <a href="/contact.html">contact</a> <>
+      <a href="/donate.html">donate</a>
     </nav>
     <h2>signup</h2>
-    <p>signing up for a trash.town account requires you to generate a
-    <strong>public key</strong> and a <strong>private key</strong> using a tool
-    called SSH.</p>
+    <p>signups for trash.town are done through a request for an account.
+    in the request, you mention your preferred username, and your public
+    SSH key.</p>
 
-    <p>this page consists of the following sections:</p>
+    <h3>page overview</h3>
     <ul>
-      <li><a href="#conventions">conventions used on this page</a></li>
+      <li><a href="#page-conventions">page conventions</a></li>
       <li><a href="#requirements">requirements</a></li>
-      <li><a href="#generating">generating your public and private ssh keys</a></li>
-      <li><a href="#sending">sending your public ssh key to trash.town</a></li>
+      <li><a href="#generating-your-public-and-private-ssh-keys">generating your public and private ssh keys</a></li>
+      <li><a href="#requesting-an-account">requesting an account</a></li>
     </ul>
 
-    <h2 id="conventions">conventions used on this page</h2>
+    <h3 id="page-conventions">page conventions</h3>
     <ul>
-      <li><strong>note</strong>: a note signifies additional information.</li>
-      <li><strong>tip</strong>: a tip signifies an alternative procedure.</li>
-      <li><strong>warning</strong>: a warning signifies that data loss or a security breach could occur.</li>
-      <li><strong>bolded items</strong>: bolded items that are not notes, tips, or warnings signify important items or details.</li>
+      <li><strong>notes</strong>: signify additional information.</li>
+      <li><strong>tips</strong>: signify alternative procedures.</li>
+      <li><strong>warnings</strong>: signify that data loss, damage, or
+          a security issue could occur.</li>
     </ul>
 
-    <h2 id="requirements">requirements</h2>
+    <h3 id="requirements">requirements</h3>
+    <p>a Unix-like environment with SSH, such as:</p>
     <ul>
-      <li>a unix-like environment, such as:
-        <ul>
-          <li>ubuntu</li>
-          <li><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">windows subsystem for linux</a></li>
-          <li>macOS</li>
-          <li><a href="https://scoop.sh/">scoop.sh</a></li>
-        </ul>
-      </li>
-      <li>SSH</li>
+      <li>ubuntu</li>
+      <li><a href="https://docs.microsoft.com/en-us/windows/wsl/">windows subsystem for linux</a></li>
+      <li>macOS</li>
+      <li><a href="https://www.cygwin.com/">cygwin</a></li>
+      <li><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">putty</a></li>
     </ul>
 
-    <h2 id="generating">generating your public and private ssh keys</h2>
-    <p>public and private ssh keys are used when logging into an ssh server,
-    without these keys, a user cannot log in.</p>
+    <h3 id="generating-your-public-and-private-ssh-keys">generating your public and private ssh keys</h3>
+    <p>public and private ssh keys allow you to log into trash.town
+    through SSH. SSH will compare your private key on your computer to
+    the public key on trash.town</p>
 
-    <p>this section will guide you through generating your public and private ssh keys.</p>
+    <p>without your public and private keys, you can't log into
+    trash.town</p>
 
-    <p><strong>note</strong>: the procedures in these steps should be run inside
-    of a unix-like environment of your choice.</p>
-
-    <h3>to generate your public and private ssh keys</h3>
+    <h4>to generate your public and private ssh keys</h4>
     <ol>
+      <li>open your Unix-like environment</li>
       <li>run <code>ssh-keygen -b 4096 -t rsa -f ~/.ssh/trash.town</code></li>
-      <li>press enter, if you don't require a password for access to the key</li>
+      <li>press enter if you don't need a password for accessing your key</li>
       <li>press enter again to confirm</li>
     </ol>
 
-    <p><strong>note</strong>: this generated two things:</p>
+    <p><strong>note</strong>: the command above generated two files:</p>
     <ul>
-      <li>a <code>~/.ssh/trash.town</code> key (<code>trash.town</code>), which is your <strong>private key</strong></li>
-      <li>a <code>~/.ssh/trash.town.pub</code> key (<code>trash.town.pub</code>), which is your <strong>public key</strong></li>
+      <li>a private key at <code>~/.ssh/trash.town</code> key (<code>trash.town</code>)</li>
+      <li>a public key at <code>~/.ssh/trash.town.pub</code> key (<code>trash.town.pub</code>)</li>
     </ul>
 
-    <h2 id="sending">sending your public ssh key to trash.town</h2>
-    <p>this section will help you access your generated public key, so you can copy and
-    paste it into an email.</p>
+    <p><strong>note</strong>: don't share your private key with anyone.
+    people can use your private and public keys to log into your account
+    after you receive one, so it is important that you only share your
+    public key when requesting an account</p>
 
-    <p><strong>warning</strong>: before you continue, make sure you don't send your
-    <code>~/.ssh/trash.town</code> key (without the <code>.pub</code> at the
-    end). you want to send the <code>~/.ssh/trash.town.pub</code> key.</p>
+    <h3 id="requesting-an-account">requesting an account</h3>
+    <p>account requests work through email. you'll need to send an email
+    with your public key and the username you want to trash.town.</p>
 
-    <h3>to send your public ssh key to trash.town</h3>
+    <p>the public key could be sent as an attachment, and your username
+    could be included in the body text of the email, with information
+    about why you want to join trash.town</p>
+
+    <h4>to send your public ssh key to trash.town</h4>
     <ol>
       <li>run <code>cat ~/.ssh/trash.town.pub</code></li>
       <li>copy the output of text</li>
-      <li>paste the output of text in an email addressed to <a href="mailto:signup@trash.town">signup@trash.town</a></li>
-      <li>type your desired username into the subject line</li>
+      <li>paste the copied text into a <code>.txt</code> file</li>
+      <li>send an email with the username you want, and why you want to
+          join trash.town, and your attached public key to
+          <a href="mailto:signup@trash.town">signup@trash.town</a></li>
     </ol>
 
-    <p><strong>tip</strong>: if the steps above didn't work for you, have a
-    look at
-    <a href="https://tilde.town/wiki/getting-started/ssh.html">tilde.town's guide</a>
+    <p><strong>tip</strong>: if you are having trouble with anything,
+    you can check out
+    <a href="https://tilde.town/wiki/getting-started/ssh.html">tilde.town's SSH guide</a>
     or
     <a href="https://cgi.tilde.town/users/keymachine">tilde.town's key generator</a></p>
+  </body>
 </html>
 
